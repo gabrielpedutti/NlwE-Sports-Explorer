@@ -20,14 +20,37 @@ body * {
   font-family: 'Inter', 'sans-serif';
 }
 
+header div {
+  width: 120px;
+  margin: auto;
+  background-image: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%);
+  border-radius: 50%;
+  display: flex;
+  padding: 4px;
+  transition: transform 0.3s;
+}
+
+header div:hover {
+  transform: scale(1.1);
+}
+
+header img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+header {
+  padding-top: 32px;
+  height: calc(120px + 32px);
+}
+
 main {
   max-width: 580px;
   width: 90%;
-  margin: auto;
+  margin: 32px auto;
   display: flex;
   flex-direction: column;
   gap: 24px;
-  margin-top: 32px;
 }
 
 section {
@@ -52,6 +75,7 @@ section h2 {
 section p {
   letter-spacing: -0.18px;
   color: #A1A1AA;
+  margin-top: 6px;
 }
 
 section ul {
@@ -59,6 +83,14 @@ section ul {
   flex-wrap: wrap;
   gap: 16px;
   margin-top: 24px;
+}
+
+section ul li {
+  transition: transform 0.3s;
+}
+
+section ul li:hover {
+  transform: scale(1.1);
 }
 
 .games-list img {
@@ -69,5 +101,49 @@ section ul {
 .channel-list img {
   border-radius: 50%;
   width: 70px;
+  border: 1px solid #443E54;
 }
 
+header div {
+  animation: fromTop 0.3s 0.2s backwards;
+}
+
+main section {
+  animation: fromBottom 0.7s backwards;
+}
+
+@keyframes fromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0)
+  }
+}
+
+main section:nth-child(1) {
+  animation-delay: 0;
+}
+
+main section:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+main section:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes fromBottom {
+  from{
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
